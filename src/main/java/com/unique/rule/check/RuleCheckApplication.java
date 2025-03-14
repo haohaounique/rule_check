@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * date:2025/1/26 13:20
  * author: haohaounique@163.com
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.unique")
 @EnableFeignClients
 @EnableDiscoveryClient
 public class RuleCheckApplication {
