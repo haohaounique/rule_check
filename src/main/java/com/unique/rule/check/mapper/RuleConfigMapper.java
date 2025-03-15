@@ -1,7 +1,7 @@
 package com.unique.rule.check.mapper;
 
-import com.unique.rule.check.dao.entity.RuleConfig;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.unique.rule.check.entity.RuleConfig;
 
 
 /**
@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author haohaounique
- * @since 2025-03-14 22:48:24
+ * @since 2025-03-15 16:37:01
  */
 public interface RuleConfigMapper extends BaseMapper<RuleConfig> {
 
