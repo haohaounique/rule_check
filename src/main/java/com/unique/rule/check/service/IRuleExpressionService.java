@@ -1,6 +1,6 @@
 package com.unique.rule.check.service;
 
-import com.unique.rule.check.dao.entity.RuleExpression;
+import com.unique.rule.check.entity.RuleExpression;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author haohaounique
- * @since 2025-03-14 23:08:07
+ * @since 2025-03-15 16:37:01
  */
 public interface IRuleExpressionService extends IService<RuleExpression> {
 

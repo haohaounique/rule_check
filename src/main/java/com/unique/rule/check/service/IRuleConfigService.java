@@ -1,7 +1,14 @@
 package com.unique.rule.check.service;
 
-import com.unique.rule.check.dao.entity.RuleConfig;
+import com.unique.framework.common.http.http.PageQuery;
+import com.unique.framework.common.http.http.PageResult;
+import com.unique.framework.common.http.http.ReqBody;
+import com.unique.rule.check.controller.req.RuleConfigPageSearchReq;
+import com.unique.rule.check.controller.resp.RuleConfigResp;
+import com.unique.rule.check.entity.RuleConfig;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -9,8 +16,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author haohaounique
- * @since 2025-03-14 23:08:08
+ * @since 2025-03-15 16:37:01
  */
 public interface IRuleConfigService extends IService<RuleConfig> {
 
+    PageResult<List<RuleConfigResp>> pageSearch(ReqBody<PageQuery<RuleConfigPageSearchReq>> reqBody);
 }

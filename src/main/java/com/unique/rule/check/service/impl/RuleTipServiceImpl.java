@@ -1,6 +1,6 @@
 package com.unique.rule.check.service.impl;
 
-import com.unique.rule.check.dao.entity.RuleTip;
+import com.unique.rule.check.entity.RuleTip;
 import com.unique.rule.check.mapper.RuleTipMapper;
 import com.unique.rule.check.service.IRuleTipService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author haohaounique
- * @since 2025-03-14 23:08:08
+ * @since 2025-03-15 16:37:01
  */
 @Service
 public class RuleTipServiceImpl extends ServiceImpl<RuleTipMapper, RuleTip> implements IRuleTipService {

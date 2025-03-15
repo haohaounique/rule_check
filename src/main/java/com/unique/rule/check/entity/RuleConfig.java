@@ -1,4 +1,4 @@
-package com.unique.rule.check.dao.entity;
+package com.unique.rule.check.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
@@ -12,7 +12,7 @@ import lombok.ToString;
  * </p>
  *
  * @author haohaounique
- * @since 2025-03-14 23:08:08
+ * @since 2025-03-15 16:39:05
  */
 @Getter
 @Setter

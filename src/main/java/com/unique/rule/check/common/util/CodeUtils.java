@@ -58,10 +58,9 @@ public class CodeUtils {
                 })
                 .strategyConfig(builder -> {
                     builder.addInclude(tableName).entityBuilder()
-                            .enableLombok().
-                             enableFileOverride()
-                            .serviceBuilder().enableFileOverride()
-                            .mapperBuilder().entityBuilder()
+                            .enableLombok(). enableFileOverride()
+                            .serviceBuilder()
+                            .mapperBuilder().entityBuilder().enableFileOverride()
                             .controllerBuilder().enableRestStyle()
                     ;
                 })

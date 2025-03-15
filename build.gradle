@@ -73,6 +73,7 @@ dependencies {
 
     implementation 'com.baomidou:mybatis-plus-generator:3.5.10.1'
     implementation 'org.freemarker:freemarker:2.3.34'
+//    implementation 'com.baomidou:mybatis-plus-spring-boot3-starter:3.5.10.1'
 }
 
 dependencyManagement {

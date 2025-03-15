@@ -1,5 +1,6 @@
 package com.unique.rule.check;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -10,6 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * author: haohaounique@163.com
  */
 @SpringBootApplication(scanBasePackages = "com.unique")
+@MapperScan(value = "com.unique.rule.check.mapper")
 @EnableFeignClients
 @EnableDiscoveryClient
 public class RuleCheckApplication {

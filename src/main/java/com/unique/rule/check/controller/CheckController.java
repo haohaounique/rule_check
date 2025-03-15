@@ -21,7 +21,6 @@ public class CheckController {
         String appName = reqBody.getAppName();
         Map<String, String> param = reqBody.getParam();
         String ruleKey = param.get("rule_key");
-
         return new RespBody<>();
     }
 }
