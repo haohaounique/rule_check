@@ -17,15 +17,15 @@ CREATE TABLE rule_expression
 
 CREATE TABLE rule_config
 (
-    id                BIGINT NOT NULL PRIMARY KEY COMMENT '主键id',
-    rule_key          VARCHAR(255) COMMENT '规则KEY',
-    field_name        VARCHAR(255) COMMENT '字段名称',
+    id                BIGINT                     NOT NULL PRIMARY KEY COMMENT '主键id',
+    rule_key          VARCHAR(255)               not null COMMENT '规则KEY',
+    field_name        VARCHAR(255)               not null COMMENT '字段名称',
     field_description TEXT COMMENT '字段描述',
-    class_name        VARCHAR(255) COMMENT '类名',
+    class_name        VARCHAR(255)               not null COMMENT '类名',
     class_description TEXT COMMENT '类描述',
-    expression        varchar(512) COMMENT '表达式',
-    rule_order        INT COMMENT '顺序',
-    tip_code          VARCHAR(64) COMMENT '提示信息',
+    expression        varchar(512)               not null COMMENT '表达式',
+    rule_order        tinyint unsigned default 1 not null COMMENT '顺序0-字段基础校验 1-定制化校验',
+    tip_code          VARCHAR(64)                not null COMMENT '提示信息',
     tip_message       varchar(512) COMMENT '提示信息',
     delete_flag       tinyint unsigned default 1 comment '0-失效 1-生效',
     create_time       datetime COMMENT '创建时间',

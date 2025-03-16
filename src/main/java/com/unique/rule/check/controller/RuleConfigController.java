@@ -1,17 +1,17 @@
 package com.unique.rule.check.controller;
 
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.unique.framework.common.http.http.PageQuery;
 import com.unique.framework.common.http.http.PageResult;
 import com.unique.framework.common.http.http.ReqBody;
 import com.unique.framework.common.http.http.RespBody;
+import com.unique.rule.check.controller.req.RuleConfigAddReq;
 import com.unique.rule.check.controller.req.RuleConfigPageSearchReq;
 import com.unique.rule.check.controller.resp.RuleConfigResp;
+import com.unique.rule.check.entity.RuleConfig;
 import com.unique.rule.check.service.IRuleConfigService;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +35,32 @@ public class RuleConfigController {
     public RespBody<Object> pageSearch(@RequestBody ReqBody<PageQuery<RuleConfigPageSearchReq>> reqBody) {
         PageResult<List<RuleConfigResp>> pageResult = ruleConfigService.pageSearch(reqBody);
         return new RespBody<>(pageResult);
+    }
+
+    /**
+     * 新增规则配置
+     */
+    @PostMapping(value = "/add")
+    public RespBody<Object> addRuleConfig(@RequestBody ReqBody<RuleConfigAddReq> reqBody) {
+        return new RespBody<>(ruleConfigService.addRuleConfig(reqBody.getParam()));
+    }
+
+    /**
+     * 删除规则配置
+     */
+    @DeleteMapping("/{id}")
+    public RespBody<Object> deleteRuleConfig(@PathVariable Long id) {
+        boolean result = ruleConfigService.removeById(id);
+        return new RespBody<>(result);
+    }
+
+    /**
+     * 修改规则配置
+     */
+    @PutMapping(value = "/update")
+    public RespBody<Object> updateRuleConfig(@RequestBody ReqBody<RuleConfig> reqBody) {
+        boolean result = ruleConfigService.updateById(reqBody.getParam());
+        return new RespBody<>(result);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.unique.rule.check.converter;
 
+import com.unique.rule.check.controller.req.RuleConfigAddReq;
+import com.unique.rule.check.entity.RuleConfig;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -10,4 +12,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface RuleConfigConverter {
     RuleConfigConverter INSTANCE = Mappers.getMapper(RuleConfigConverter.class);
+
+    RuleConfig toPo(RuleConfigAddReq param);
 }
