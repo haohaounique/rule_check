@@ -18,7 +18,7 @@ public class RegCheckService extends AbstractCheckService {
     @Override
     public boolean process(RuleConfig config, Map<String, String> map) {
         String fieldValue = map.get(config.getFieldName());
-        if (CharSequenceUtil.isBlank(config.getExpression()) || CharSequenceUtil.isBlank(fieldValue)) {
+        if (CharSequenceUtil.isBlank(fieldValue)) {
             return true;
         }
         return Pattern.compile(config.getExpression()).matcher(fieldValue).matches();

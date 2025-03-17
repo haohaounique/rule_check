@@ -1,6 +1,5 @@
 package com.unique.rule.check.service.impl.check.empty;
 
-import cn.hutool.core.text.CharSequenceUtil;
 import com.unique.rule.check.entity.RuleConfig;
 import com.unique.rule.check.service.AbstractCheckService;
 import org.springframework.stereotype.Service;

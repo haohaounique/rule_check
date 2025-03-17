@@ -15,7 +15,14 @@ import java.util.regex.Pattern;
 public class DataCompareUtils {
     private DataCompareUtils() {
     }
-
+    public static final String SYMBOL_01 = "(,)";
+    public static final String SYMBOL_02 = "[,)";
+    public static final String SYMBOL_03 = "(,]";
+    public static final String SYMBOL_04 = "[,]";
+    public static final String SYMBOL_05 = "[,";
+    public static final String SYMBOL_06 = "(,";
+    public static final String SYMBOL_07 = ",]";
+    public static final String SYMBOL_08 = ",)";
 
     public static final Map<String, String> SYMBOL_MAP = new HashMap<>();
 
@@ -30,14 +37,7 @@ public class DataCompareUtils {
         SYMBOL_MAP.put(",)", ",)");
     }
 
-    public static final String SYMBOL_01 = "(,)";
-    public static final String SYMBOL_02 = "[,)";
-    public static final String SYMBOL_03 = "(,]";
-    public static final String SYMBOL_04 = "[,]";
-    public static final String SYMBOL_05 = "[,";
-    public static final String SYMBOL_06 = "(,";
-    public static final String SYMBOL_07 = ",]";
-    public static final String SYMBOL_08 = ",)";
+
 
     private static final Pattern NUMBER_REG = Pattern.compile("^-?\\d+(\\.\\d+)?$");
 
