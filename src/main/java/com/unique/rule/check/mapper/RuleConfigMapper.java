@@ -9,7 +9,7 @@ import com.unique.rule.check.entity.RuleConfig;
  * 规则配置 Mapper 接口
  * </p>
  *
- * @author haohaounique
+ * @author haohaounique@163.com
  * @since 2025-03-15 16:37:01
  */
 public interface RuleConfigMapper extends BaseMapper<RuleConfig> {

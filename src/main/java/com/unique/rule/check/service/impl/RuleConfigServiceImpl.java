@@ -30,7 +30,7 @@ import java.util.Map;
  * 规则配置 服务实现类
  * </p>
  *
- * @author haohaounique
+ * @author haohaounique@163.com
  * @since 2025-03-15 16:37:01
  */
 @Service
@@ -57,7 +57,7 @@ public class RuleConfigServiceImpl extends ServiceImpl<RuleConfigMapper, RuleCon
     }
 
     @Override
-    public Object checkParam(Map<String, String> param) {
+    public Object process(Map<String, String> param) {
         String ruleKey = param.get("rule_key");
         if (CharSequenceUtil.isBlank(ruleKey)) {
             throw new GlobalException(GlobalErrorCode.PARAMETER_EXCEPTION, "规则key不能为空");

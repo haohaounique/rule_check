@@ -20,7 +20,7 @@ import java.util.List;
  * 规则配置 前端控制器
  * </p>
  *
- * @author haohaounique
+ * @author haohaounique@163.com
  * @since 2025-03-14 22:48:24
  */
 @RestController

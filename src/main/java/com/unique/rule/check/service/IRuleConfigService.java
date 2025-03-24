@@ -17,7 +17,7 @@ import java.util.Map;
  * 规则配置 服务类
  * </p>
  *
- * @author haohaounique
+ * @author haohaounique@163.com
  * @since 2025-03-15 16:37:01
  */
 public interface IRuleConfigService extends IService<RuleConfig> {
@@ -26,5 +26,5 @@ public interface IRuleConfigService extends IService<RuleConfig> {
 
     boolean addRuleConfig(RuleConfigAddReq param);
 
-    Object checkParam(Map<String, String> param);
+    Object process(Map<String, String> param);
 }

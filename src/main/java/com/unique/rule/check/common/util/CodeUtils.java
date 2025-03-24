@@ -31,7 +31,7 @@ public class CodeUtils {
     public static void genecode(String tableName, String filePath) {
         FastAutoGenerator.create("jdbc:mysql://localhost:3306/rule_check?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai", "root", "hadoop")
                 .globalConfig(builder -> {
-                    builder.author("haohaounique") // 设置作者
+                    builder.author("haohaounique@163.com") // 设置作者
 //                            .enableSwagger() // 开启 swagger 模式
 //                            .fileOverride() // 覆盖已生成文件 已过时到strategyConfig 中去配置
                             .dateType(DateType.TIME_PACK)

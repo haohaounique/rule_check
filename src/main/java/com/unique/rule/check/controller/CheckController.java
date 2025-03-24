@@ -25,7 +25,7 @@ public class CheckController {
 
     @RequestMapping("/process")
     public RespBody<Object> process(@RequestBody ReqBody<Map<String, String>> reqBody) {
-        return new RespBody<>(ruleConfigService.checkParam(reqBody.getParam()), reqBody.getHooks());
+        return new RespBody<>(ruleConfigService.process(reqBody.getParam()), reqBody.getHooks());
     }
 
 }

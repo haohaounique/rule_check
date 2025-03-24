@@ -11,7 +11,7 @@ import lombok.ToString;
  * 规则配置
  * </p>
  *
- * @author haohaounique
+ * @author haohaounique@163.com
  * @since 2025-03-15 16:39:05
  */
 @Getter
