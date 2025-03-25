@@ -1,5 +1,6 @@
 package com.unique.rule.check.common.util;
 
+import cn.hutool.core.text.CharSequenceUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
@@ -51,7 +52,7 @@ public class DataCompareUtils {
      */
 
     public static boolean checkValue(String value, String config) {
-        if (StringUtils.isEmpty(config)) {
+        if (StringUtils.isEmpty(config)||!checkIsNumber(value)) {
             return false;
         }
         config = config.replace(" ", "").replace("，", ",").replace("（", "(").replace("【", "[").replace("】", "]").replace("）", ")").trim();
