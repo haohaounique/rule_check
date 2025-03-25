@@ -15,16 +15,16 @@ import java.util.regex.Pattern;
 public class DataCompareUtils {
     private DataCompareUtils() {
     }
-    public static final String SYMBOL_01 = "(,)";
-    public static final String SYMBOL_02 = "[,)";
-    public static final String SYMBOL_03 = "(,]";
-    public static final String SYMBOL_04 = "[,]";
-    public static final String SYMBOL_05 = "[,";
-    public static final String SYMBOL_06 = "(,";
-    public static final String SYMBOL_07 = ",]";
-    public static final String SYMBOL_08 = ",)";
+    private static final String SYMBOL_01 = "(,)";
+    private static final String SYMBOL_02 = "[,)";
+    private static final String SYMBOL_03 = "(,]";
+    private static final String SYMBOL_04 = "[,]";
+    private static final String SYMBOL_05 = "[,";
+    private static final String SYMBOL_06 = "(,";
+    private static final String SYMBOL_07 = ",]";
+    private static final String SYMBOL_08 = ",)";
 
-    public static final Map<String, String> SYMBOL_MAP = new HashMap<>();
+    private static final Map<String, String> SYMBOL_MAP = new HashMap<>();
 
     static {
         SYMBOL_MAP.put("(,)", "(,)");
@@ -97,53 +97,53 @@ public class DataCompareUtils {
     }
 
     //(5,8)
-    public static boolean checkLeftNoAndRightNo(String value, String config) {
+    private static boolean checkLeftNoAndRightNo(String value, String config) {
         String range = config.replace("(", "").replace(")", "");
         String[] split = range.split(",");
         return checkNoIncludeMin(value, split[0]) && checkNoIncludeMax(value, split[1]);
     }
 
     //(5,8]
-    public static boolean checkLeftNoAndRight(String value, String config) {
+    private static boolean checkLeftNoAndRight(String value, String config) {
         String range = config.replace("(", "").replace("]", "");
         String[] split = range.split(",");
         return checkNoIncludeMin(value, split[0]) && checkIncludeMax(value, split[1]);
     }
 
     //[5,8)
-    public static boolean checkLeftAndRightNo(String value, String config) {
+    private static boolean checkLeftAndRightNo(String value, String config) {
         String range = config.replace("[", "").replace(")", "");
         String[] split = range.split(",");
         return checkIncludeMin(value, split[0]) && checkNoIncludeMax(value, split[1]);
     }
 
     //[5,8]
-    public static boolean checkLeftAndRight(String value, String config) {
+    private static boolean checkLeftAndRight(String value, String config) {
         String range = config.replace("[", "").replace("]", "");
         String[] split = range.split(",");
         return checkIncludeMin(value, split[0]) && checkIncludeMax(value, split[1]);
     }
 
     //(5,
-    public static boolean checkLeftNo(String value, String config) {
+    private static boolean checkLeftNo(String value, String config) {
         String range = config.replace("(", "").replace(",", "");
         return checkNoIncludeMin(value, range);
     }
 
     //[5,
-    public static boolean checkLeft(String value, String config) {
+    private static boolean checkLeft(String value, String config) {
         String range = config.replace("[", "").replace(",", "");
         return checkIncludeMin(value, range);
     }
 
     //,8)
-    public static boolean checkRightNo(String value, String config) {
+    private static boolean checkRightNo(String value, String config) {
         String range = config.replace(")", "").replace(",", "");
         return checkNoIncludeMax(value, range);
     }
 
     //,8]
-    public static boolean checkRight(String value, String config) {
+    private static boolean checkRight(String value, String config) {
         String range = config.replace("]", "").replace(",", "");
         return checkIncludeMax(value, range);
     }
@@ -156,7 +156,7 @@ public class DataCompareUtils {
      * @param target
      * @return
      */
-    public static boolean checkNoIncludeMin(String value, String target) {
+    private static boolean checkNoIncludeMin(String value, String target) {
         if (StringUtils.isEmpty(value) || StringUtils.isEmpty(target)) {
             return false;
         }
@@ -173,7 +173,7 @@ public class DataCompareUtils {
      * @param target
      * @return
      */
-    public static boolean checkIncludeMin(String value, String target) {
+    private static boolean checkIncludeMin(String value, String target) {
         if (StringUtils.isEmpty(value) || StringUtils.isEmpty(target)) {
             return false;
         }
@@ -190,7 +190,7 @@ public class DataCompareUtils {
      * @param target
      * @return
      */
-    public static boolean checkIncludeMax(String value, String target) {
+    private static boolean checkIncludeMax(String value, String target) {
         if (StringUtils.isEmpty(value) || StringUtils.isEmpty(target)) {
             return false;
         }
@@ -207,7 +207,7 @@ public class DataCompareUtils {
      * @param target
      * @return
      */
-    public static boolean checkNoIncludeMax(String value, String target) {
+    private static boolean checkNoIncludeMax(String value, String target) {
         if (StringUtils.isEmpty(value) || StringUtils.isEmpty(target)) {
             return false;
         }
@@ -250,7 +250,7 @@ public class DataCompareUtils {
         arrayList.add("(5,");
         arrayList.add(",8]");
         arrayList.add(",8)");
-        String target = "8.01";
+        String target = "8.0";
         for (String s : arrayList) {
             boolean checked = checkValue(target, s);
             System.out.printf("s:%s ,%s, %s", s, target, checked);
