@@ -1,16 +1,19 @@
 package com.unique.rule.check.controller;
 
-import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.unique.framework.common.http.http.PageQuery;
 import com.unique.framework.common.http.http.PageResult;
 import com.unique.framework.common.http.http.ReqBody;
 import com.unique.framework.common.http.http.RespBody;
+import com.unique.rule.check.common.util.ValidateUtils;
+import com.unique.rule.check.controller.req.FieldReq;
 import com.unique.rule.check.controller.req.RuleConfigAddReq;
 import com.unique.rule.check.controller.req.RuleConfigPageSearchReq;
 import com.unique.rule.check.controller.resp.RuleConfigResp;
 import com.unique.rule.check.entity.RuleConfig;
 import com.unique.rule.check.service.IRuleConfigService;
 import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
+import jakarta.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,7 +44,7 @@ public class RuleConfigController {
      * 新增规则配置
      */
     @PostMapping(value = "/add")
-    public RespBody<Object> addRuleConfig(@RequestBody ReqBody<RuleConfigAddReq> reqBody) {
+    public RespBody<Object> addRuleConfig(@RequestBody @Valid ReqBody<RuleConfigAddReq> reqBody) {
         return new RespBody<>(ruleConfigService.addRuleConfig(reqBody.getParam()));
     }
 
@@ -61,6 +64,23 @@ public class RuleConfigController {
     public RespBody<Object> updateRuleConfig(@RequestBody ReqBody<RuleConfig> reqBody) {
         boolean result = ruleConfigService.updateById(reqBody.getParam());
         return new RespBody<>(result);
+    }
+
+    @Resource
+    private Validator validator;
+
+    @RequestMapping("/validate")
+    public void validate() {
+        RuleConfigAddReq ruleConfigAddReq = new RuleConfigAddReq();
+        ruleConfigAddReq.setRuleKey("ruleKey");
+        ruleConfigAddReq.setFieldName("fieldName");
+        ruleConfigAddReq.setFieldDescription("fieldDescription");
+        ruleConfigAddReq.setClassName("className");
+        ruleConfigAddReq.setClassDescription("classDescription");
+        ruleConfigAddReq.setExpression("expression");
+        ruleConfigAddReq.setRuleOrder(1);
+        FieldReq fieldReq = new FieldReq();
+        ValidateUtils.validate(List.of(fieldReq));
     }
 
 }

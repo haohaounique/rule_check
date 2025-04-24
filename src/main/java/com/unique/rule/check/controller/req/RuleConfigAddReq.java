@@ -2,6 +2,7 @@ package com.unique.rule.check.controller.req;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
@@ -57,20 +58,20 @@ public class RuleConfigAddReq {
      * 顺序
      */
     @Schema(description = "顺序")
-    @NotBlank(message = "顺序不能为空")
+    @NotNull(message = "顺序不能为空")
     private Integer ruleOrder;
 
     /**
      * 提示信息
      */
     @Schema(description = "提示信息")
-    @NotBlank(message = "提示信息不能为空")
+    @NotBlank(message = "提示信息编码不能为空")
     private String tipCode;
 
     /**
      * 提示信息
      */
     @Schema(description = "提示信息")
-    @NotBlank
+    @NotBlank(message = "提示信息不能为空")
     private String tipMessage;
 }

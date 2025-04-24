@@ -1,6 +1,5 @@
 package com.unique.rule.check.common.util;
 
-import cn.hutool.core.text.CharSequenceUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
