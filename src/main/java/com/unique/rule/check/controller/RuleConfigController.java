@@ -13,7 +13,6 @@ import com.unique.rule.check.entity.RuleConfig;
 import com.unique.rule.check.service.IRuleConfigService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import jakarta.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,8 +35,7 @@ public class RuleConfigController {
 
     @PostMapping(value = "/pageSearch")
     public RespBody<Object> pageSearch(@RequestBody ReqBody<PageQuery<RuleConfigPageSearchReq>> reqBody) {
-        PageResult<List<RuleConfigResp>> pageResult = ruleConfigService.pageSearch(reqBody);
-        return new RespBody<>(pageResult);
+        return new RespBody<>(ruleConfigService.pageSearch(reqBody));
     }
 
     /**
@@ -66,19 +64,8 @@ public class RuleConfigController {
         return new RespBody<>(result);
     }
 
-    @Resource
-    private Validator validator;
-
     @RequestMapping("/validate")
     public void validate() {
-        RuleConfigAddReq ruleConfigAddReq = new RuleConfigAddReq();
-        ruleConfigAddReq.setRuleKey("ruleKey");
-        ruleConfigAddReq.setFieldName("fieldName");
-        ruleConfigAddReq.setFieldDescription("fieldDescription");
-        ruleConfigAddReq.setClassName("className");
-        ruleConfigAddReq.setClassDescription("classDescription");
-        ruleConfigAddReq.setExpression("expression");
-        ruleConfigAddReq.setRuleOrder(1);
         FieldReq fieldReq = new FieldReq();
         ValidateUtils.validate(List.of(fieldReq));
     }
